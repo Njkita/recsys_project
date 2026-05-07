@@ -1,0 +1,54 @@
+# StackRec applied to the modernised SASRec.
+#
+# Three stages: train 4 blocks → stack to 8 → stack to 16, with lr halved at
+# each stack and 5% warmup to recover from the architectural perturbation.
+# Saves ~30-45% wall-clock vs from-scratch n_blocks=16 per the paper.
+
+seed: 42
+
+model:
+  name: sasrec
+  d: 128
+  n_blocks: 4               # initial — overridden per stage
+  n_heads: 4
+  max_len: 200
+  dropout: 0.2
+  ffn_mult: 4
+  use_rope: true
+  use_ligr_gates: true
+  use_side: true
+  side_use_genome: true
+  side_dropout: 0.1
+
+loss:
+  name: gbce
+  n_neg: 256
+  gbce_t: 0.75
+  sampling: uniform
+  in_batch_negatives: false
+
+aug:
+  sse_pt_p: 0.1
+
+training:
+  batch_size: 128
+  eval_batch_size: 512
+  num_workers: 4
+  lr: 1.0e-3
+  weight_decay: 1.0e-2
+  warmup_frac: 0.05
+  min_lr_ratio: 0.01
+  ema_decay: 0.999
+  grad_clip: 1.0
+  max_epochs: 30
+  eval_every_epochs: 1
+  early_stop_patience: 10
+  log_every_steps: 200
+
+eval:
+  ks: [5, 10, 20]
+
+stackrec:
+  stages: [4, 8, 16]
+  epochs: [30, 15, 10]
+  mode: adjacent

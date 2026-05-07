@@ -1,0 +1,50 @@
+# Linear-attention SASRec — pedagogical comparison.
+#
+# Same SASRec scaffolding (Pre-LN + RoPE + SwiGLU + LiGR-gates) with attention
+# replaced by causal linear attention (elu+1 feature map, prefix-sum). At
+# L=200 this is *slower* than FlashAttention because of the [B, H, L, hd, hd]
+# cumulative tensor — the win is at L≥1000 in the synthetic benchmark.
+
+seed: 42
+
+model:
+  name: linear_attn
+  d: 128
+  n_blocks: 3
+  n_heads: 4
+  max_len: 200
+  dropout: 0.2
+  ffn_mult: 4
+  use_rope: true
+  use_ligr_gates: true
+  use_side: true
+  side_use_genome: true
+  side_dropout: 0.1
+
+loss:
+  name: gbce
+  n_neg: 256
+  gbce_t: 0.75
+  sampling: uniform
+  in_batch_negatives: false
+
+aug:
+  sse_pt_p: 0.1
+
+training:
+  batch_size: 64                # halved due to extra memory of cumsum tensor
+  eval_batch_size: 256
+  num_workers: 4
+  lr: 1.0e-3
+  weight_decay: 1.0e-2
+  warmup_frac: 0.05
+  min_lr_ratio: 0.01
+  ema_decay: 0.999
+  grad_clip: 1.0
+  max_epochs: 80
+  eval_every_epochs: 1
+  early_stop_patience: 8
+  log_every_steps: 200
+
+eval:
+  ks: [5, 10, 20]

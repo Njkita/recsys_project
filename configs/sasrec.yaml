@@ -1,0 +1,56 @@
+# Modernised SASRec — flagship config for ML-20M.
+#
+# Architecture: Pre-LN + RoPE + SwiGLU + LiGR-gates + tied weights, 3 blocks at
+# d=128. Loss: gBCE with t=0.75 and 256 negatives — the single highest-ROI
+# choice from gSASRec. Training stack: AdamW(no-decay on emb/norm/bias) with
+# 5% linear warmup → cosine decay, bf16 autocast on A100, EMA(0.999), grad
+# clip 1.0. Side info (genres + decade + Tag Genome 1128-d) summed into the
+# item embedding. SSE-PT input augmentation p=0.1.
+#
+# Target: NDCG@10 ≥ 0.20 on full-catalog leave-one-out (vs V1adls1aV/esasrec
+# baseline 0.187). Reach ~12-24 h on A100-80GB.
+
+seed: 42
+
+model:
+  name: sasrec
+  d: 128
+  n_blocks: 3
+  n_heads: 4
+  max_len: 200
+  dropout: 0.2
+  ffn_mult: 4
+  use_rope: true
+  use_ligr_gates: true
+  use_side: true
+  side_use_genome: true
+  side_dropout: 0.1
+
+loss:
+  name: gbce              # gbce | sampled_softmax
+  n_neg: 256
+  gbce_t: 0.75
+  sampling: uniform        # uniform | popularity
+  in_batch_negatives: false
+
+aug:
+  sse_pt_p: 0.1            # 0 disables
+
+training:
+  batch_size: 256          # A100 80GB has plenty of room; sweet spot per IDEAS.md is 256-512
+  eval_batch_size: 1024    # eval scoring [B, V≈20k] easily fits
+  num_workers: 8
+  lr: 1.0e-3
+  weight_decay: 1.0e-2
+  warmup_frac: 0.05
+  min_lr_ratio: 0.01
+  ema_decay: 0.999
+  grad_clip: 1.0
+  max_epochs: 100
+  eval_every_epochs: 1
+  early_stop_patience: 10
+  log_every_steps: 200
+  snapshot_ensemble: false
+
+eval:
+  ks: [5, 10, 20]

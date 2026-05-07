@@ -1,0 +1,14 @@
+# Core. torch is reused from system-site-packages on x32-gpu-01 (2.5.1+cu121)
+# but listed here so a fresh server install also works.
+torch>=2.5.1
+numpy>=1.24
+pandas>=2.0
+scipy>=1.11
+scikit-learn>=1.3
+tqdm>=4.65
+pyyaml>=6.0
+
+# Optional: Mamba4Rec — install via scripts/install_mamba.sh, NOT through pip.
+# (Plain pip install would attempt source build that fails without nvcc.)
+#   mamba-ssm==2.2.4
+#   causal-conv1d==1.4.0

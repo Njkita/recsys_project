@@ -1,0 +1,34 @@
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# datasets are downloaded on the GPU server
+data/ml-20m/
+data/ml-20m.zip
+data/processed.pkl
+data/processed/
+data/*.zip
+data/*.csv
+data/*.pkl
+data/*.npy
+
+# experiment outputs
+runs/
+*.pt
+*.ckpt
+*.pth
+wandb/
+mlruns/
+.tensorboard/
+
+# editor
+.idea/
+.vscode/
+.DS_Store

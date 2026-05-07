@@ -1,0 +1,49 @@
+# Vanilla SASRec — ablation reference.
+#
+# Mirrors the V1adls1aV/esasrec recipe (canonical SASRec+, ReLU FFN, learned
+# absolute PE, naive sampled CE) but reuses our modernised attention block.
+# We keep RoPE-off, LiGR-off, no side-info, no SSE-PT, no EMA. Only optimiser
+# is upgraded to AdamW (Adam in their repo lacks weight decay anyway).
+# Used to plot the delta of every modernisation.
+
+seed: 42
+
+model:
+  name: sasrec
+  d: 256
+  n_blocks: 2
+  n_heads: 1
+  max_len: 200
+  dropout: 0.1
+  ffn_mult: 4
+  use_rope: false
+  use_ligr_gates: false
+  use_side: false
+  side_use_genome: false
+
+loss:
+  name: sampled_softmax
+  n_neg: 256
+  sampling: uniform
+  in_batch_negatives: false
+
+aug:
+  sse_pt_p: 0.0
+
+training:
+  batch_size: 128
+  eval_batch_size: 512
+  num_workers: 4
+  lr: 1.0e-3
+  weight_decay: 0.0
+  warmup_frac: 0.0
+  min_lr_ratio: 1.0           # disables cosine decay
+  ema_decay: 0.0
+  grad_clip: 0.0
+  max_epochs: 100
+  eval_every_epochs: 1
+  early_stop_patience: 10
+  log_every_steps: 200
+
+eval:
+  ks: [5, 10, 20]
