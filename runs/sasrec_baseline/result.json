@@ -1,0 +1,27 @@
+{
+  "exp_name": "sasrec_baseline",
+  "config_path": "configs/sasrec_baseline.yaml",
+  "model": "sasrec",
+  "n_blocks": 2,
+  "d": 256,
+  "params": {
+    "total": 6331392,
+    "trainable": 6331392
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 58,
+  "val_NDCG@10": 0.2086,
+  "test_metrics": {
+    "HR@5": 0.2313,
+    "NDCG@5": 0.162,
+    "HR@10": 0.3186,
+    "NDCG@10": 0.1902,
+    "HR@20": 0.421,
+    "NDCG@20": 0.216,
+    "MRR@20": 0.1579,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}

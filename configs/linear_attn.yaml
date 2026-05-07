@@ -22,7 +22,7 @@ model:
   side_dropout: 0.1
 
 loss:
-  name: gbce
+  name: sampled_softmax
   n_neg: 256
   gbce_t: 0.75
   sampling: uniform
@@ -36,10 +36,10 @@ training:
   eval_batch_size: 256
   num_workers: 4
   lr: 1.0e-3
-  weight_decay: 1.0e-2
-  warmup_frac: 0.05
-  min_lr_ratio: 0.01
-  ema_decay: 0.999
+  weight_decay: 0.0
+  warmup_frac: 0.01
+  min_lr_ratio: 1.0
+  ema_decay: 0.0
   grad_clip: 1.0
   max_epochs: 80
   eval_every_epochs: 1
