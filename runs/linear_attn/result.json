@@ -1,0 +1,27 @@
+{
+  "exp_name": "linear_attn",
+  "config_path": "configs/linear_attn.yaml",
+  "model": "linear_attn",
+  "n_blocks": 3,
+  "d": 128,
+  "params": {
+    "total": 3092352,
+    "trainable": 3092352
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 66,
+  "val_NDCG@10": 0.1797,
+  "test_metrics": {
+    "HR@5": 0.1998,
+    "NDCG@5": 0.138,
+    "HR@10": 0.2826,
+    "NDCG@10": 0.1648,
+    "HR@20": 0.3823,
+    "NDCG@20": 0.1899,
+    "MRR@20": 0.1356,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}

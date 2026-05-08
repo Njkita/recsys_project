@@ -1,0 +1,27 @@
+{
+  "exp_name": "fnet_hybrid",
+  "config_path": "configs/fnet_hybrid.yaml",
+  "model": "fnet_hybrid",
+  "n_blocks": 4,
+  "d": 128,
+  "params": {
+    "total": 3094912,
+    "trainable": 3094912
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 68,
+  "val_NDCG@10": 0.1189,
+  "test_metrics": {
+    "HR@5": 0.1311,
+    "NDCG@5": 0.0858,
+    "HR@10": 0.2005,
+    "NDCG@10": 0.1081,
+    "HR@20": 0.2918,
+    "NDCG@20": 0.1311,
+    "MRR@20": 0.0864,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}

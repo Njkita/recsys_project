@@ -1,0 +1,27 @@
+{
+  "exp_name": "fmlp",
+  "config_path": "configs/fmlp.yaml",
+  "model": "fmlp",
+  "n_blocks": 3,
+  "d": 128,
+  "params": {
+    "total": 2998144,
+    "trainable": 2998144
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 43,
+  "val_NDCG@10": 0.1239,
+  "test_metrics": {
+    "HR@5": 0.1343,
+    "NDCG@5": 0.0896,
+    "HR@10": 0.2031,
+    "NDCG@10": 0.1117,
+    "HR@20": 0.2924,
+    "NDCG@20": 0.1342,
+    "MRR@20": 0.0901,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}

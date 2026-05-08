@@ -1,0 +1,27 @@
+{
+  "exp_name": "nextitnet",
+  "config_path": "configs/nextitnet.yaml",
+  "model": "nextitnet",
+  "n_blocks": 16,
+  "d": 128,
+  "params": {
+    "total": 5667456,
+    "trainable": 5667456
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 1,
+  "val_NDCG@10": 0.0042,
+  "test_metrics": {
+    "HR@5": 0.0039,
+    "NDCG@5": 0.0022,
+    "HR@10": 0.0089,
+    "NDCG@10": 0.0038,
+    "HR@20": 0.0197,
+    "NDCG@20": 0.0065,
+    "MRR@20": 0.003,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}
