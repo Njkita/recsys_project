@@ -4,9 +4,9 @@ model:
   d: 128
   n_blocks: 3
   max_len: 200
-  dropout: 0.5
+  dropout: 0.2
   ffn_mult: 4
-  use_side: true
+  use_side: false
   side_use_genome: true
   side_dropout: 0.1
 loss:
@@ -16,7 +16,7 @@ loss:
   sampling: uniform
   in_batch_negatives: false
 aug:
-  sse_pt_p: 0.1
+  sse_pt_p: 0.0
 training:
   batch_size: 256
   eval_batch_size: 1024

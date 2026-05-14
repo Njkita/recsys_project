@@ -69,10 +69,10 @@ class ResidualBlockB(nn.Module):
         self.use_glu = use_glu
         out_mult = 2 if use_glu else 1
         self.conv1 = CausalConv1d(d, d * out_mult, kernel_size, dilation)
-        self.ln1 = nn.LayerNorm(d * out_mult, eps=1e-8)
+        self.ln1 = nn.LayerNorm(d * out_mult, eps=1e-5)
         self.act1 = GLU() if use_glu else nn.ReLU()
         self.conv2 = CausalConv1d(d, d * out_mult, kernel_size, dilation * 2)
-        self.ln2 = nn.LayerNorm(d * out_mult, eps=1e-8)
+        self.ln2 = nn.LayerNorm(d * out_mult, eps=1e-5)
         self.act2 = GLU() if use_glu else nn.ReLU()
         self.drop = nn.Dropout(dropout)
 
@@ -112,7 +112,7 @@ class NextItNet(nn.Module):
             self.item_emb.weight[0].fill_(0.0)
         for m in self.modules():
             if isinstance(m, nn.Conv1d):
-                nn.init.kaiming_normal_(m.weight, nonlinearity="relu")
+                nn.init.xavier_uniform_(m.weight, gain=0.5)
                 if m.bias is not None:
                     nn.init.zeros_(m.bias)
 
