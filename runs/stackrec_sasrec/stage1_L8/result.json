@@ -1,0 +1,27 @@
+{
+  "exp_name": "stage1_L8",
+  "config_path": "configs/stackrec_sasrec.yaml",
+  "model": "sasrec",
+  "n_blocks": 8,
+  "d": 128,
+  "params": {
+    "total": 4084352,
+    "trainable": 4084352
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 15,
+  "val_NDCG@10": 0.2014,
+  "test_metrics": {
+    "HR@5": 0.2221,
+    "NDCG@5": 0.155,
+    "HR@10": 0.3096,
+    "NDCG@10": 0.1832,
+    "HR@20": 0.4137,
+    "NDCG@20": 0.2095,
+    "MRR@20": 0.1517,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}

@@ -1,0 +1,27 @@
+{
+  "exp_name": "stage0_L4",
+  "config_path": "configs/stackrec_sasrec.yaml",
+  "model": "sasrec",
+  "n_blocks": 4,
+  "d": 128,
+  "params": {
+    "total": 3290752,
+    "trainable": 3290752
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 30,
+  "val_NDCG@10": 0.1867,
+  "test_metrics": {
+    "HR@5": 0.2076,
+    "NDCG@5": 0.1435,
+    "HR@10": 0.2936,
+    "NDCG@10": 0.1712,
+    "HR@20": 0.3943,
+    "NDCG@20": 0.1966,
+    "MRR@20": 0.1407,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}
