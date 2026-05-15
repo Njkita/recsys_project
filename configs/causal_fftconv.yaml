@@ -1,0 +1,42 @@
+# CausalFFTConvRec — strictly causal FFT-based sequential recommender.
+# Causal long convolution via FFT (Hyena/S4 trick). Training stack matches
+# sasrec_baseline (proven on ML-20M): sampled_softmax, no EMA/wd/cosine.
+seed: 42
+
+model:
+  name: causal_fftconv
+  d: 256
+  n_blocks: 3
+  max_len: 200
+  dropout: 0.2
+  ffn_mult: 4
+  use_side: false
+  side_use_genome: false
+
+loss:
+  name: sampled_softmax
+  n_neg: 256
+  sampling: uniform
+  in_batch_negatives: false
+
+aug:
+  sse_pt_p: 0.0
+
+training:
+  batch_size: 256
+  eval_batch_size: 1024
+  num_workers: 8
+  lr: 1.0e-3
+  weight_decay: 0.0
+  warmup_frac: 0.01
+  min_lr_ratio: 1.0
+  ema_decay: 0.0
+  grad_clip: 1.0
+  max_epochs: 100
+  eval_every_epochs: 1
+  early_stop_patience: 10
+  log_every_steps: 200
+  snapshot_ensemble: false
+
+eval:
+  ks: [5, 10, 20]

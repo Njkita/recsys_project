@@ -23,6 +23,7 @@ _REGISTRY = {
     "linear_attn":  (".linear_attn",   "LinearAttnConfig",  "LinearAttnSASRec"),
     "fnet_hybrid":  (".fnet",          "FNetHybridConfig",  "FNetHybridSASRec"),
     "mamba4rec":    (".mamba4rec",     "Mamba4RecConfig",   "Mamba4Rec"),
+    "causal_fftconv": (".causal_fftconv",  "CausalFFTConvConfig", "CausalFFTConvRec"),
 }
 
 
