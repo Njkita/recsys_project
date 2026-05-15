@@ -112,7 +112,7 @@ class NextItNet(nn.Module):
             self.item_emb.weight[0].fill_(0.0)
         for m in self.modules():
             if isinstance(m, nn.Conv1d):
-                nn.init.xavier_uniform_(m.weight, gain=0.5)
+                nn.init.xavier_uniform_(m.weight, gain=1.0)
                 if m.bias is not None:
                     nn.init.zeros_(m.bias)
 

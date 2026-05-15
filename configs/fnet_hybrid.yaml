@@ -3,14 +3,14 @@ model:
   name: fnet_hybrid
   d: 128
   n_blocks: 4
-  n_attn_top: 1
+  n_attn_top: 2
   n_heads: 4
   max_len: 200
   dropout: 0.2
   ffn_mult: 4
   use_rope: true
-  use_ligr_gates: false
-  use_side: false
+  use_ligr_gates: true
+  use_side: true
   side_use_genome: true
   side_dropout: 0.1
 loss:
@@ -20,7 +20,7 @@ loss:
   sampling: uniform
   in_batch_negatives: false
 aug:
-  sse_pt_p: 0.0
+  sse_pt_p: 0.1
 training:
   batch_size: 256
   eval_batch_size: 1024
