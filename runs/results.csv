@@ -1,10 +1,11 @@
 exp_name,model,n_blocks,d,loss,n_neg,best_epoch,val_NDCG@10,test_HR@5,test_HR@10,test_HR@20,test_NDCG@5,test_NDCG@10,test_NDCG@20,test_MRR@20,params_total,device,config_path
-fmlp,fmlp,3,128,sampled_softmax,256,43,0.1239,0.1343,0.2031,0.2924,0.0896,0.1117,0.1342,0.0901,2998144,cuda,configs/fmlp.yaml
-fnet_hybrid,fnet_hybrid,4,128,sampled_softmax,256,68,0.1189,0.1311,0.2005,0.2918,0.0858,0.1081,0.1311,0.0864,3094912,cuda,configs/fnet_hybrid.yaml
+fmlp,fmlp,3,128,sampled_softmax,256,9,0.1079,0.1171,0.1749,0.2512,0.0786,0.0972,0.1164,0.0788,2849536,cuda,configs/fmlp.yaml
+fnet_hybrid,fnet_hybrid,4,128,sampled_softmax,256,98,0.0759,0.0773,0.128,0.2018,0.0488,0.065,0.0836,0.0511,2945280,cuda,configs/fnet_hybrid.yaml
 linear_attn,linear_attn,3,128,sampled_softmax,256,66,0.1797,0.1998,0.2826,0.3823,0.138,0.1648,0.1899,0.1356,3092352,cuda,configs/linear_attn.yaml
-nextitnet,nextitnet,16,128,sampled_softmax,256,1,0.0042,0.0039,0.0089,0.0197,0.0022,0.0038,0.0065,0.003,5667456,cuda,configs/nextitnet.yaml
+nextitnet,nextitnet,8,128,sampled_softmax,256,1,0.0002,0.0003,0.0006,0.0011,0.0002,0.0003,0.0004,0.0002,3933696,cuda,configs/nextitnet.yaml
 sasrec,sasrec,3,256,sampled_softmax,256,60,0.2122,0.2396,0.3265,0.4284,0.1696,0.1976,0.2233,0.1651,7071744,cuda,configs/sasrec.yaml
 sasrec_baseline,sasrec,2,256,sampled_softmax,256,58,0.2086,0.2313,0.3186,0.421,0.162,0.1902,0.216,0.1579,6331392,cuda,configs/sasrec_baseline.yaml
+stage2_L16,sasrec,16,128,sampled_softmax,256,10,0.2088,0.2312,0.3202,0.4227,0.1619,0.1906,0.2164,0.158,5671552,cuda,configs/stackrec_sasrec.yaml
 stage0_L4,sasrec,4,128,sampled_softmax,256,30,0.1867,0.2076,0.2936,0.3943,0.1435,0.1712,0.1966,0.1407,3290752,cuda,configs/stackrec_sasrec.yaml
 stage1_L8,sasrec,8,128,sampled_softmax,256,15,0.2014,0.2221,0.3096,0.4137,0.155,0.1832,0.2095,0.1517,4084352,cuda,configs/stackrec_sasrec.yaml
 stage2_L16,sasrec,16,128,sampled_softmax,256,10,0.2088,0.2312,0.3202,0.4227,0.1619,0.1906,0.2164,0.158,5671552,cuda,configs/stackrec_sasrec.yaml

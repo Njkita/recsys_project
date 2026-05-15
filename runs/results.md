@@ -6,10 +6,11 @@ Full-catalog leave-one-out, filter-seen, NDCG/HR/MRR over the entire catalog. Ge
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | sasrec | sasrec | 3 | 256 | sampled_softmax | 0.3265 | 0.1976 | 0.1651 | 0.2122 | 60 | 7071744 |
 | stage2_L16 | sasrec | 16 | 128 | sampled_softmax | 0.3202 | 0.1906 | 0.1580 | 0.2088 | 10 | 5671552 |
+| stage2_L16 | sasrec | 16 | 128 | sampled_softmax | 0.3202 | 0.1906 | 0.1580 | 0.2088 | 10 | 5671552 |
 | sasrec_baseline | sasrec | 2 | 256 | sampled_softmax | 0.3186 | 0.1902 | 0.1579 | 0.2086 | 58 | 6331392 |
 | stage1_L8 | sasrec | 8 | 128 | sampled_softmax | 0.3096 | 0.1832 | 0.1517 | 0.2014 | 15 | 4084352 |
 | stage0_L4 | sasrec | 4 | 128 | sampled_softmax | 0.2936 | 0.1712 | 0.1407 | 0.1867 | 30 | 3290752 |
 | linear_attn | linear_attn | 3 | 128 | sampled_softmax | 0.2826 | 0.1648 | 0.1356 | 0.1797 | 66 | 3092352 |
-| fmlp | fmlp | 3 | 128 | sampled_softmax | 0.2031 | 0.1117 | 0.0901 | 0.1239 | 43 | 2998144 |
-| fnet_hybrid | fnet_hybrid | 4 | 128 | sampled_softmax | 0.2005 | 0.1081 | 0.0864 | 0.1189 | 68 | 3094912 |
-| nextitnet | nextitnet | 16 | 128 | sampled_softmax | 0.0089 | 0.0038 | 0.0030 | 0.0042 | 1 | 5667456 |
+| fmlp | fmlp | 3 | 128 | sampled_softmax | 0.1749 | 0.0972 | 0.0788 | 0.1079 | 9 | 2849536 |
+| fnet_hybrid | fnet_hybrid | 4 | 128 | sampled_softmax | 0.1280 | 0.0650 | 0.0511 | 0.0759 | 98 | 2945280 |
+| nextitnet | nextitnet | 8 | 128 | sampled_softmax | 0.0006 | 0.0003 | 0.0002 | 0.0002 | 1 | 3933696 |

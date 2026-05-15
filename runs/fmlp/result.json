@@ -5,21 +5,21 @@
   "n_blocks": 3,
   "d": 128,
   "params": {
-    "total": 2998144,
-    "trainable": 2998144
+    "total": 2849536,
+    "trainable": 2849536
   },
   "loss": "sampled_softmax",
   "n_neg": 256,
-  "best_epoch": 43,
-  "val_NDCG@10": 0.1239,
+  "best_epoch": 9,
+  "val_NDCG@10": 0.1079,
   "test_metrics": {
-    "HR@5": 0.1343,
-    "NDCG@5": 0.0896,
-    "HR@10": 0.2031,
-    "NDCG@10": 0.1117,
-    "HR@20": 0.2924,
-    "NDCG@20": 0.1342,
-    "MRR@20": 0.0901,
+    "HR@5": 0.1171,
+    "NDCG@5": 0.0786,
+    "HR@10": 0.1749,
+    "NDCG@10": 0.0972,
+    "HR@20": 0.2512,
+    "NDCG@20": 0.1164,
+    "MRR@20": 0.0788,
     "n_eval_users": 138493.0
   },
   "device": "cuda",
