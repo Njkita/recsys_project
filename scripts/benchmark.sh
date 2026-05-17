@@ -9,8 +9,8 @@ source .venv/bin/activate
 
 mkdir -p runs
 python -m src.benchmark \
-  --configs configs/sasrec.yaml configs/nextitnet.yaml configs/fmlp.yaml \
-            configs/fnet_hybrid.yaml configs/linear_attn.yaml \
+  --configs configs/sasrec.yaml configs/sasrec_baseline.yaml configs/stackrec_sasrec.yaml configs/nextitnet.yaml configs/fmlp.yaml \
+            configs/fnet_hybrid.yaml configs/linear_attn.yaml configs/causal_fftconv.yaml \
   --lengths 200 500 1000 2000 \
   --out runs/benchmark.csv
 
