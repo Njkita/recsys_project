@@ -1,0 +1,24 @@
+{
+  "exp_name": "ensemble",
+  "model": "ensemble",
+  "n_blocks": "-",
+  "d": "-",
+  "loss": "logit-average",
+  "members": [
+    "ensemble_bases/sasrec/best.pt",
+    "ensemble_bases/sasrec_baseline/best.pt"
+  ],
+  "n_members": 2,
+  "best_epoch": "-",
+  "test_metrics": {
+    "HR@5": 0.24468384683702427,
+    "NDCG@5": 0.17379443136750686,
+    "HR@10": 0.33421183742138594,
+    "NDCG@10": 0.20266613169020728,
+    "HR@20": 0.4383470644725726,
+    "NDCG@20": 0.2289442282305654,
+    "MRR@20": 0.1695158418297581,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda"
+}

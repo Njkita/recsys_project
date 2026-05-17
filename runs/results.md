@@ -4,13 +4,14 @@ Full-catalog leave-one-out, filter-seen, NDCG/HR/MRR over the entire catalog. Ge
 
 | exp_name | model | n_blocks | d | loss | test_HR@10 | test_NDCG@10 | test_MRR@20 | val_NDCG@10 | best_epoch | params_total |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ensemble | ensemble | - | - | logit-average | 0.3342 | 0.2027 | 0.1695 | - | - | -1 |
 | sasrec | sasrec | 3 | 256 | sampled_softmax | 0.3265 | 0.1976 | 0.1651 | 0.2122 | 60 | 7071744 |
-| stage2_L16 | sasrec | 16 | 128 | sampled_softmax | 0.3202 | 0.1906 | 0.1580 | 0.2088 | 10 | 5671552 |
+| causal_fftconv | causal_fftconv | 3 | 256 | sampled_softmax | 0.3258 | 0.1948 | 0.1617 | 0.2122 | 66 | 6490112 |
 | stage2_L16 | sasrec | 16 | 128 | sampled_softmax | 0.3202 | 0.1906 | 0.1580 | 0.2088 | 10 | 5671552 |
 | sasrec_baseline | sasrec | 2 | 256 | sampled_softmax | 0.3186 | 0.1902 | 0.1579 | 0.2086 | 58 | 6331392 |
 | stage1_L8 | sasrec | 8 | 128 | sampled_softmax | 0.3096 | 0.1832 | 0.1517 | 0.2014 | 15 | 4084352 |
 | stage0_L4 | sasrec | 4 | 128 | sampled_softmax | 0.2936 | 0.1712 | 0.1407 | 0.1867 | 30 | 3290752 |
 | linear_attn | linear_attn | 3 | 128 | sampled_softmax | 0.2826 | 0.1648 | 0.1356 | 0.1797 | 66 | 3092352 |
-| fmlp | fmlp | 3 | 128 | sampled_softmax | 0.1749 | 0.0972 | 0.0788 | 0.1079 | 9 | 2849536 |
-| fnet_hybrid | fnet_hybrid | 4 | 128 | sampled_softmax | 0.1280 | 0.0650 | 0.0511 | 0.0759 | 98 | 2945280 |
+| fmlp | fmlp | 4 | 128 | sampled_softmax | 0.2153 | 0.1184 | 0.0955 | 0.1321 | 68 | 3156608 |
+| fnet_hybrid | fnet_hybrid | 4 | 128 | sampled_softmax | 0.2148 | 0.1172 | 0.0942 | 0.1267 | 71 | 3160192 |
 | nextitnet | nextitnet | 8 | 128 | sampled_softmax | 0.0006 | 0.0003 | 0.0002 | 0.0002 | 1 | 3933696 |

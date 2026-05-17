@@ -1,0 +1,27 @@
+{
+  "exp_name": "causal_fftconv",
+  "config_path": "configs/causal_fftconv.yaml",
+  "model": "causal_fftconv",
+  "n_blocks": 3,
+  "d": 256,
+  "params": {
+    "total": 6490112,
+    "trainable": 6490112
+  },
+  "loss": "sampled_softmax",
+  "n_neg": 256,
+  "best_epoch": 66,
+  "val_NDCG@10": 0.2122,
+  "test_metrics": {
+    "HR@5": 0.2364,
+    "NDCG@5": 0.1659,
+    "HR@10": 0.3258,
+    "NDCG@10": 0.1948,
+    "HR@20": 0.4278,
+    "NDCG@20": 0.2205,
+    "MRR@20": 0.1617,
+    "n_eval_users": 138493.0
+  },
+  "device": "cuda",
+  "autocast_dtype": "torch.bfloat16"
+}
